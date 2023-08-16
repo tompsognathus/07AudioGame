@@ -61,7 +61,8 @@ void AAudioGameCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	if (UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		//Jumping
-		EnhancedInputComponent->BindAction(PingAction, ETriggerEvent::Started, this, &AAudioGameCharacter::Ping);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 
 		//Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAudioGameCharacter::Move);
@@ -96,11 +97,6 @@ void AAudioGameCharacter::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
-}
-
-void AAudioGameCharacter::Ping()
-{
-	UE_LOG(LogTemp, Display, TEXT("Ping!"));
 }
 
 void AAudioGameCharacter::SetHasRifle(bool bNewHasRifle)
