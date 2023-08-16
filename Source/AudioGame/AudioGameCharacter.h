@@ -44,13 +44,20 @@ protected:
 	float PingPropagationSpeed = 10.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ping")
-	float PingRadius = 10000.f;
-	
+	float MaxPingRadius = 10000.f;
+
+private:
+	bool IsPinging = false;
+
 public:
 	AAudioGameCharacter();
 
 protected:
 	virtual void BeginPlay();
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
 
 public:
 	/** Look Input Action */
@@ -64,7 +71,9 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
-	void Ping();
+	/** Ping functions **/
+	void StartPing();
+	void GrowPingSphere(float DeltaTime);
 
 protected:
 	// APawn interface

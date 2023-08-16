@@ -104,9 +104,6 @@ void AAudioGameCharacter::Look(const FInputActionValue& Value)
 
 void AAudioGameCharacter::StartPing()
 {
-	// Reset ping sphere
-	SphereCollisionForPing->SetSphereRadius(0.f);
-
 	IsPinging = true;
 }
 
