@@ -15,6 +15,7 @@ ABeacon::ABeacon()
 void ABeacon::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
 }
 

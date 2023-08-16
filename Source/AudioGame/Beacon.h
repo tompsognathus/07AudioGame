@@ -22,6 +22,16 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beacon")
 	bool AutoPinging = true;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beacon")
+	float PingInterval = 1.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Beacon")
+	bool IsCollectable = false;
+
+	UFUNCTION(BlueprintCallable, Category = "Beacon")
+	bool GetIsCollectable() { return IsCollectable; }
+
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
