@@ -1,1 +1,3 @@
 sonar_ping		https://freesound.org/people/Blackie666/sounds/102217/
+electric_fence		https://freesound.org/people/FlashTrauma/sounds/398274/
+electric_hum		https://freesound.org/people/zazz.sound.design/sounds/613566/
